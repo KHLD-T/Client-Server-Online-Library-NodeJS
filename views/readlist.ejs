@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-image: url("background3.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            -webkit-text-stroke: 1px blue;
+        }
+        .cont {
+            position: relative;
+            left: 600px;
+            top: 50px;
+            color: white;
+            -webkit-text-stroke: 0.5px black;
+        }
+        .container1 {
+            position:relative;
+            color: white;
+            display: block;
+            float: left;
+        }
+        .container2 {
+            position: relative;
+            color: white;
+            display: block;
+            float: left;
+        }
+        .container3 {
+            position: relative;
+            color: white;
+            display: block;
+            float: left;
+        }
+        .container4 {
+            position: relative;
+            color: white;
+            display: block;
+            float: left;
+        }
+        .container5 {
+            position: relative;
+            color: white;
+            display: block;
+            float: left;
+        }
+        .container6 {
+            position: relative;
+            color: white;
+            display: block;
+            float: left;
+        }
+        #label1 {
+            position: relative;
+            right: 0px;
+        }
+        #label2 {
+            position: relative;
+            right: 0px;
+        }
+        #label3 {
+            position: relative;
+            right: 0px;
+        }
+        #label4 {
+            position: relative;
+            right: 0px;
+        }
+        #label5 {
+            position: relative;
+            right: 0px;
+        }
+        #label6 {
+            position: relative;
+            right: 0px;
+        }
+        #dune, #mockingbird,#leaves,#sun,#flies,#grapes {
+            position: relative;
+            left: 0px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Want to Read List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+        <a class="navbar-brand" style="color: rgb(191, 255, 161)">Want to Read List</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <form method="POST" action='/search' class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" name="Search" type="search" placeholder="Search"
+                    aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container1" id="duneForm">
+        <img id="image" src="/dune.jpg" width="193" height="300">
+        <br>
+        <label id="label1" class="ml-4 my-2">Dune</label>
+        <br>
+        <form method="GET" action="/dune">
+            <button id="dune" class="btn btn-secondary ml-3"> View </button>
+        </form>
+    </div>
+    <div class="container2" id="mockingbirdForm">
+        <img id="image" src="/mockingbird.jpg" width="193" height="300">
+        <br>
+        <label id ="label2" class="ml-4 my-2">To Kill a Mockingbird</label>
+        <br>
+        <form method="GET" action="/mockingbird">
+            <button id="mockingbird" class="btn btn-secondary ml-3"> View </button>
+        </form>
+    </div>
+    <div class="container3" id="fliesForm">
+        <img id="image" src="/flies.jpg" width="193" height="300">
+        <br>
+        <label id="label3" class="ml-4 my-2">Lord of the Flies</label>
+        <br>
+        <form method="GET" action="/flies">
+            <button id="flies" class="btn btn-secondary ml-3"> View </button>
+        </form>
+    </div>
+    <div class="container4" id="grapesForm">
+        <img id="image" src="/grapes.jpg" width="193" height="300">
+        <br>
+        <label id ="label4" class="ml-4 my-2">The Grapes of Wrath</label>
+        <br>
+        <form method="GET" action="/grapes">
+            <button id="grapes" class="btn btn-secondary ml-3"> View </button>
+        </form>
+    </div>
+    <div class="container5" id="leavesForm">
+        <img id="image" src="/leaves.jpg" width="193" height="300">
+        <br>
+        <label id="label5" class="ml-4 my-2">Leaves of Grass</label>
+        <br>
+        <form method="GET" action="/leaves">
+            <button id="leaves" class="btn btn-secondary ml-3"> View </button>
+        </form>
+    </div>
+    <div class="container6" id="sunForm">
+        <img id="image" src="/sun.jpg" width="193" height="300">
+        <br>
+        <label id ="label6" class="ml-4 my-2">The Sun and Her Flowers</label>
+        <br>
+        <form method="GET" action="/sun">
+            <button id="sun" class="btn btn-secondary ml-3"> View </button>
+        </form>
+    </div>
+    <p hidden><%= user %></p>
+    <script>
+        var list = "<%= user %>";
+        if(!list.includes("Dune"))
+            document.getElementById("duneForm").style.display = "none";
+        if(!list.includes("Leaves Of Grass"))
+            document.getElementById("leavesForm").style.display = "none";
+        if(!list.includes("The Sun And Her Flowers"))
+            document.getElementById("sunForm").style.display = "none";
+        if(!list.includes("The Grapes Of Wrath"))
+            document.getElementById("grapesForm").style.display = "none";
+        if(!list.includes("The Lord Of The Flies"))
+            document.getElementById("fliesForm").style.display = "none";
+        if(!list.includes("To Kill A Mockingbird"))
+            document.getElementById("mockingbirdForm").style.display = "none";
+    </script>
+</body>
+</html>
